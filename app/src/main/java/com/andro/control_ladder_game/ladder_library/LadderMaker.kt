@@ -1,9 +1,10 @@
 package com.andro.control_ladder_game.ladder_library
 
-class LadderConstructor(row : Int, column : Int) {
+class LadderMaker(private val line : Int = 2) {
+    fun getLadderMap() = Int
 
-    init{
-        setLadder()
+
+    fun makeLadderMap(){
 
     }
 
