@@ -7,5 +7,4 @@ class LadderUtil {
 
 data class LadderUser(
     val userPhoto : Image? = null,
-    val userName : String = "null",
-    )
+    val userName : String = "null", )
