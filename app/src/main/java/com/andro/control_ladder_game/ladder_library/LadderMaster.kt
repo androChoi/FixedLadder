@@ -6,7 +6,7 @@ class LadderMaster {
     private val resultManager = LadderResultManager(
         ladderRepo.getProbabilityDataList(),
         ladderRepo.getProbabilityDataList().size,
-        ladderRepo.absoluteBoomer
+        ladderRepo.absoluteNumber
     )
     private val ladderMaker = LadderMaker(ladderRepo.getHorseDataList().size)
 

@@ -11,6 +11,8 @@ open class DataChecker{
     protected fun checkNormalValue(value: Int) = value != -1
 }
 
+/**userData : userPhoto, userName/
+ * State : row,column**/
 data class HorseData(
     val userPhoto : Image? = null,
     val userName : String = "null",
