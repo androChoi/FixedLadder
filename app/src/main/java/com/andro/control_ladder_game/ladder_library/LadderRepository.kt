@@ -3,7 +3,7 @@ package com.andro.control_ladder_game.ladder_library
 
 object LadderRepository {
     /**priority(1). 1이 선택되어있을 경우 무조건 얘로 사다리를 만든다. 물론 사람 수도 충족 해야 함*/
-    private var absoluteNumber = -1
+    var absoluteNumber = -1
         set(value) {
             field = if(value <= -1) -1
             else if(value >= USER_MAX_LIMIT) USER_MAX_LIMIT-1
