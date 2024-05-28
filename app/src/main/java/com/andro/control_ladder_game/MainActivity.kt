@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.andro.control_ladder_game.ladder_library.LadderRepository
 
 class MainActivity : AppCompatActivity() {
-    val ladderRepository : LadderRepository = LadderRepository
+    val ladderRepository = LadderRepository
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
