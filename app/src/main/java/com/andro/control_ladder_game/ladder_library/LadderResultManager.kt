@@ -44,6 +44,7 @@ class LadderResultManager(
 
     private fun makeAbsoluteLadderRoute(boomer : Int) : List<List<Int>>{
         makeRandomLadderMap(userNumber)
+        return listOf(listOf(1))
     }
 
 
@@ -52,6 +53,7 @@ class LadderResultManager(
     private fun makeRandomLadderMap(ladderSize : Int) : List<List<Int>>{
         Log.i(TAG,"makeRandomLadderMap : $ladderSize")
 
+        return listOf(listOf(1))
     }
 
 

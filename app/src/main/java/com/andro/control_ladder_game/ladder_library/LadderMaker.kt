@@ -23,24 +23,41 @@ open class LadderMaker(private val userNumber : Int) {
     private val btmBottom = 90
     private val btmMaxCount = 0
     private val btmMinCount = 2
+
+    private val stepMargin = 4
+    /**
+     * Return making Ladder Map.*/
     fun getLadderMap() : List<List<Int>>{
         return makeLadderMap()
     }
 
+    /**
+     * ### Make Logic 1
+     * 1 : create LadderMap Object
+     * 2 : add the standard stepBar - makeRandomLadderStepBar
+     * 3 : add the next stepBar on loop in userNumber - 1
+     * 4 : return ladderMap*/
     private fun makeLadderMap() : List<List<Int>>{
         val ladderMap = arrayListOf(arrayListOf<Int>())
-        ladderMap.add(makeRandomLadderStepBar())
+        ladderMap.add(makeRandomLadderStepBar(listOf(0)))
         Log.i(TAG, "makeLadderMap step list 1 : ${ladderMap[0]}")
 
         for(i in 1 until userNumber){
-            ladderMap.add(makeRandomLadderStepBar())
+            ladderMap.add(makeRandomLadderStepBar(ladderMap[i-1]))
             Log.i(TAG, "makeLadderMap step list $i : ${ladderMap[i]}")
         }
 
         return ladderMap
     }
 
-    private fun makeRandomLadderStepBar() : ArrayList<Int> {
+    /**
+     * ### Make Logic 2
+     * 1 : create stepList Object
+     * 2 : create rangeList Instance
+     * 3 : create sizeList Instance
+     * 4 : add instance made by makeLadderStepBar into stepList
+     * 5 : return ..!*/
+    private fun makeRandomLadderStepBar(cmpStepList: List<Int>) : ArrayList<Int> {
         val stepList = arrayListOf<Int>()
         val rangeList = listOf(topTop .. topBottom, midTop .. midBottom, btmTop .. btmBottom)
         val sizeList = listOf(
@@ -50,7 +67,7 @@ open class LadderMaker(private val userNumber : Int) {
         )
 
         rangeList.forEachIndexed { index, intRange ->
-            makeLadderStepBar(sizeList[index], intRange).forEach{step ->
+            makeLadderStepBar(cmpStepList, sizeList[index], intRange).forEach{step ->
                 stepList.add(step)
             }
             Log.i(TAG, "makeRandomLadderStepBar stepList[$index] : ${stepList[index]}")
@@ -60,12 +77,15 @@ open class LadderMaker(private val userNumber : Int) {
     }
 
     /**Margin은 넣을 수도 있는데,,, UI 넣을 때 넣어야 함
-     * 다만 사다리 개수와 백분율 사이의 계산식이 필요하다*/
-    private fun makeLadderStepBar(stepSize : Int, range : IntRange) : ArrayList<Int>{
+     * 다만 사다리 개수와 백분율 사이의 계산식이 필요하다
+     *
+     * cmpStepList로 그 값을 쓸 수 있을 지 판단한다.*/
+    private fun makeLadderStepBar(cmpStepList : List<Int>, stepSize : Int, range : IntRange) : ArrayList<Int>{
         Log.i(TAG, "makeLadderStepBar stepSize : $stepSize")
         val stepList = arrayListOf<Int>()
         if(stepSize == 0)
             return stepList
+
         stepList.add(Random.nextInt(range))
 
         for(i in 1 until stepSize){
@@ -75,16 +95,26 @@ open class LadderMaker(private val userNumber : Int) {
                 var flag = true
 
                 stepList.forEach {
-                    if(stepBar + 5 >= it && stepBar - 5 <= it)
+                    if(checkGoodStepMargin(it, stepBar))
                         flag = false
                 }
 
-                if(flag || emergencyCnt ++ > 22){
+                cmpStepList.forEach{
+                    if(checkGoodStepMargin(it, stepBar))
+                        flag = false
+                }
+
+                if(flag){
                     stepList.add(stepBar)
                 }
+                if(emergencyCnt ++ > 22)
+                    return stepList
             }
         }
 
         return stepList
     }
+
+    private fun checkGoodStepMargin(cmpStepBar : Int, stepBar : Int) =
+        !(stepBar - stepMargin < cmpStepBar && cmpStepBar < stepBar + stepMargin)
 }
