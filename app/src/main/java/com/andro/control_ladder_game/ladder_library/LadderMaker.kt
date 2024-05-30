@@ -5,7 +5,7 @@ import kotlin.random.Random
 import kotlin.random.nextInt
 
 private const val TAG = "LadderMaker"
-open class LadderMaker(private val userNumber : Int) {
+class LadderMaker(private val userNumber : Int) {
     //Top ~ Bottom 사이에만 사다리 스텝이 생성
     //3분할 하지 않으면 사다리 쏠림 현상 발생하기 때문이다.
     //값은 0~100이다
@@ -27,9 +27,7 @@ open class LadderMaker(private val userNumber : Int) {
     private val stepMargin = 4
     /**
      * Return making Ladder Map.*/
-    fun getLadderMap() : List<List<Int>>{
-        return makeLadderMap()
-    }
+    fun getLadderMap() = makeLadderMap()
 
     /**
      * ### Make Logic 1

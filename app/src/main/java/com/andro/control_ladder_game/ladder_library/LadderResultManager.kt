@@ -22,40 +22,14 @@ class LadderResultManager(
     private val userNumber : Int,
     private val probabilityList : List<Int>,
     private val absoluteBoomer : Int = -1
-) : LadderMaker(userNumber){
-    private val routeList : List<List<Int>>
-
-    init{
-        routeList = selectRouteModeList()
-    }
-
-    fun getLadderInformation() = Pair(routeList, getLadderMap())
-
-    private fun selectRouteModeList() : List<List<Int>>{
-        return if(absoluteBoomer in 0 until userNumber){
-            Log.i(TAG, "selectRouteModeList absoluteBoomer: $absoluteBoomer")
-            makeAbsoluteLadderRoute(absoluteBoomer)
+){
+    fun getBoomerNumber() =
+        if(absoluteBoomer in 0 until userNumber){
+            Log.i(TAG, "selectRouteModeList absolute Boomer: $absoluteBoomer")
+            absoluteBoomer
         }else{
-            val newBoomer = makeNewAbsoluteBoomer()
-            Log.i(TAG, "selectRouteModeList absoluteBoomer: $newBoomer")
-            makeAbsoluteLadderRoute(newBoomer)
+            makeNewAbsoluteBoomer()
         }
-    }
-
-    private fun makeAbsoluteLadderRoute(boomer : Int) : List<List<Int>>{
-        makeRandomLadderMap(userNumber)
-        return listOf(listOf(1))
-    }
-
-
-    /**랜덤 사다리를 만든다
-     * */
-    private fun makeRandomLadderMap(ladderSize : Int) : List<List<Int>>{
-        Log.i(TAG,"makeRandomLadderMap : $ladderSize")
-
-        return listOf(listOf(1))
-    }
-
 
     /**
      * User로부터 받은 확률 리스트에서 당첨 번호를 미리 뽑는다.
@@ -115,6 +89,8 @@ class LadderResultManager(
             return idxOfGoodBoomers[king]
         }
         Log.i(TAG, "selectKingOfBoomers : ${idxOfGoodBoomers[0]}")
+
+        //1개면 그냥 0번 주고 말지 뭥
         return idxOfGoodBoomers[0]
     }
 }

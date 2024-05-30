@@ -16,17 +16,28 @@ class LadderMaster (private val ladderRepo : LadderRepository = LadderRepository
     /**
      * userList에 대한 결과를 resultManager에서 ladderMaker로 경로를 전달
      **/
+
+    val boomer = 0
+
+    private val ladderMaker = LadderMaker(ladderRepo.getHorseDataList().size)
     private val resultManager = LadderResultManager(
         ladderRepo.getHorseDataList().size,
         ladderRepo.getProbabilityDataList(),
         ladderRepo.absoluteNumber
     )
 
-    private fun setResultInRepository(){
+    /**
+     * 사다리 형상을 반환합니다*/
+    fun getLadderMap() = ladderMaker.getLadderMap()
 
+    /**
+     * 재배치된 사다리 말을 반환합니다*/
+    fun getLadderHorseList() {
+        setRearrangeHorseList()
     }
 
-    private fun setRouteInRepository(){
+
+    private fun setRearrangeHorseList(){
 
     }
 }
