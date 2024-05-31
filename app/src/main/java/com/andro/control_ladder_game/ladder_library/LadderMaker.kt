@@ -25,9 +25,11 @@ class LadderMaker(private val userNumber : Int) {
     private val btmMinCount = 2
 
     private val stepMargin = 4
+    private val ladderMap = makeLadderMap()
     /**
      * Return making Ladder Map.*/
-    fun getLadderMap() = makeLadderMap()
+    fun getLadderMap() = ladderMap
+
 
     /**
      * ### Make Logic 1
@@ -35,7 +37,7 @@ class LadderMaker(private val userNumber : Int) {
      * 2 : add the standard stepBar - makeRandomLadderStepBar
      * 3 : add the next stepBar on loop in userNumber - 1
      * 4 : return ladderMap*/
-    private fun makeLadderMap() : List<List<Int>>{
+    fun makeLadderMap() : List<List<Int>>{
         val ladderMap = arrayListOf(arrayListOf<Int>())
         ladderMap.add(makeRandomLadderStepBar(listOf(0)))
         Log.i(TAG, "makeLadderMap step list 1 : ${ladderMap[0]}")

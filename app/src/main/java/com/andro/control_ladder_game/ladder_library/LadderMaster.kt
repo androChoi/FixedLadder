@@ -17,7 +17,7 @@ class LadderMaster (private val ladderRepo : LadderRepository = LadderRepository
      * userList에 대한 결과를 resultManager에서 ladderMaker로 경로를 전달
      **/
 
-    val boomer = 0
+    private val boomer = 0
 
     private val ladderMaker = LadderMaker(ladderRepo.getHorseDataList().size)
     private val resultManager = LadderResultManager(
@@ -26,9 +26,22 @@ class LadderMaster (private val ladderRepo : LadderRepository = LadderRepository
         ladderRepo.absoluteNumber
     )
 
+    private val ladderRouteNavigator = LadderRouteNavigator(ladderMaker.getLadderMap())
+    
     /**
-     * 사다리 형상을 반환합니다*/
-    fun getLadderMap() = ladderMaker.getLadderMap()
+     * 사다리 형상을 반환합니다
+     * 화면에 맞는 마진값을 포함하고 말이죠.*/
+    fun getLadderMap(w : Int, h : Int) : List<List<Int>>{
+        ladderMaker.getLadderMap()
+
+        return ladderMaker.getLadderMap()
+    }
+
+    fun getLadderMap(w : Float, h : Float) : List<List<Int>>{
+        ladderMaker.getLadderMap()
+
+        return ladderMaker.getLadderMap()
+    }
 
     /**
      * 재배치된 사다리 말을 반환합니다*/
