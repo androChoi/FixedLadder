@@ -12,7 +12,7 @@ class LadderRouteNavigator(private val ladderMap : List<List<Int>>) {
     private val horseGoalList = makeHorseGoalList()
     private val naviData = makeNavigationDataList()
     private val size = ladderMap.size
-    fun getGoalList() = horseGoalList
+    fun getRouteList() = horseGoalList
 
     private fun makeHorseGoalList() : List<List<Int>>{
         val returnList = arrayListOf(listOf<Int>())
