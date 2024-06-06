@@ -7,4 +7,10 @@
     <string name="main_menu_setting">Setting</string>
     <string name="main_menu_record">Record</string>
     <string name="main_menu_info">Info</string>
+
+
+    <string name="setting_king">Set King</string>
+    <string name="setting_probability">Set Probability</string>
+    <string name="setting_speed">Set Game Speed</string>
+    <string name="setting_reset">Reset Data</string>
 </resources>

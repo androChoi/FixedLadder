@@ -1,23 +1,25 @@
 package com.andro.control_ladder_game.ladder_ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.andro.control_ladder_game.MainActivity
 import com.andro.control_ladder_game.R
 import com.andro.control_ladder_game.databinding.FragmentMenuBinding
+import com.andro.control_ladder_game.layouts.MenuBoardLayout
+import com.andro.control_ladder_game.layouts.MenuDataItem
 import com.andro.control_ladder_game.viewmodels.ShareViewModel
 
 private const val TAG = "MenuFragment"
 class MenuFragment : Fragment() {
     private lateinit var binding : FragmentMenuBinding
-    private val shareViewModel : ShareViewModel by  viewModels()
+    private val shareViewModel : ShareViewModel by  activityViewModels()
+    private val activity: MainActivity by lazy { requireActivity() as MainActivity }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,12 +47,10 @@ class MenuFragment : Fragment() {
             listOf(
                 MenuDataItem(getString(R.string.main_menu_start))
                 { findNavController().navigate(R.id.action_menuFragment_to_userFragment) },
-                MenuDataItem(getString(R.string.main_menu_setting))
-                {findNavController().navigate(R.id.action_menuFragment_to_probabilityFragment)},
                 MenuDataItem(getString(R.string.main_menu_record))
                 {},
-                MenuDataItem(getString(R.string.main_menu_info))
-                {},
+                MenuDataItem(getString(R.string.main_menu_setting))
+                {findNavController().navigate(R.id.action_menuFragment_to_settingFragment)},
             ),
             Pair(800, 400)
         )

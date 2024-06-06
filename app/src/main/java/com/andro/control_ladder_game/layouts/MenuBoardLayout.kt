@@ -1,12 +1,10 @@
-package com.andro.control_ladder_game.ladder_ui
+package com.andro.control_ladder_game.layouts
 
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.fragment.app.Fragment
-import com.andro.control_ladder_game.databinding.LayoutMenuBoardBinding
 import com.andro.control_ladder_game.databinding.LayoutMenuBoardItemBinding
 
 private const val TAG = "MenuBoardFragment"
