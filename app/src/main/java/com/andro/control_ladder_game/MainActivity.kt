@@ -1,11 +1,15 @@
 package com.andro.control_ladder_game
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.andro.control_ladder_game.ladder_library.LadderRepository
+import com.andro.control_ladder_game.viewmodels.ShareViewModel
 
 class MainActivity : AppCompatActivity() {
-    val ladderRepository = LadderRepository
+    private val ladderRepository = LadderRepository
+    val shareViewModel : ShareViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

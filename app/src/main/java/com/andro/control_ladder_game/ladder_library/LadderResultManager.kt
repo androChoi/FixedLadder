@@ -23,13 +23,18 @@ class LadderResultManager(
     private val probabilityList : List<Int>,
     private val absoluteBoomer : Int = -1
 ){
-    fun getBoomerNumber() =
+    private var boomer = makeAbsoluteBoomer()
+
+    fun getBoomerNumber() = boomer
+
+    fun makeAbsoluteBoomer(){
         if(absoluteBoomer in 0 until userNumber){
             Log.i(TAG, "selectRouteModeList absolute Boomer: $absoluteBoomer")
             absoluteBoomer
         }else{
             makeNewAbsoluteBoomer()
         }
+    }
 
     /**
      * User로부터 받은 확률 리스트에서 당첨 번호를 미리 뽑는다.

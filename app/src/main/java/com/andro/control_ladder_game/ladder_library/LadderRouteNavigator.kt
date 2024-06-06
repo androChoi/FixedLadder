@@ -8,14 +8,14 @@ private const val TAG = "LadderRouteNavigator"
  * LadderMap을 받은 Navigator는 결국 길을 찾는 것을 목표로 해야 한다.
  * 말들이 언젠가 길을 잃지 않게, 처음부터 올바른 길로 인도하는 것이다.
  * */
-class LadderRouteNavigator(private val ladderMap : List<List<Int>>) {
+class LadderHorseNavigator(private val ladderMap : List<List<Int>>) {
     private val horseGoalList = makeHorseGoalList()
-    private val naviData = makeNavigationDataList()
     private val size = ladderMap.size
     fun getRouteList() = horseGoalList
 
     private fun makeHorseGoalList() : List<List<Int>>{
         val returnList = arrayListOf(listOf<Int>())
+        val naviData = makeNavigationDataList()
 
         for(i in 0 until size){
             returnList.add(navigateRoute(i,naviData))

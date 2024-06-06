@@ -9,6 +9,8 @@ class LadderMaker(private val userNumber : Int) {
     //Top ~ Bottom 사이에만 사다리 스텝이 생성
     //3분할 하지 않으면 사다리 쏠림 현상 발생하기 때문이다.
     //값은 0~100이다
+    private val targetSize = 100
+
     private val topTop = 10
     private val topBottom = 25
     private val topMaxCount = 0
@@ -29,7 +31,7 @@ class LadderMaker(private val userNumber : Int) {
     /**
      * Return making Ladder Map.*/
     fun getLadderMap() = ladderMap
-
+    fun getTargetSize() = targetSize
 
     /**
      * ### Make Logic 1

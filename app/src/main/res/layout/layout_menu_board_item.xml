@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="content"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="240dp"
+        android:layout_height="150dp"
+        android:background="@color/black">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/good"
+            android:src="@drawable/baseline_h_mobiledata_24"
+            app:layout_constraintBottom_toTopOf="@+id/guide_horizontal_33"
+            app:layout_constraintEnd_toStartOf="@+id/guide_vertical_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guide_horizontal_33" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="@={content}"
+            tools:text ="시작하기"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textColor="@color/main_color"
+            app:layout_constraintBottom_toTopOf="@+id/guide_horizontal_33"
+            app:layout_constraintEnd_toStartOf="@+id/guide_vertical_80"
+            app:layout_constraintStart_toStartOf="@+id/guide_vertical_20"
+            app:layout_constraintTop_toTopOf="@+id/guide_horizontal_33" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/good"
+            android:src="@drawable/arrow_forward_ios_24dp_fill0_wght400_grad0_opsz24"
+            app:layout_constraintBottom_toTopOf="@+id/guide_horizontal_33"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guide_vertical_80"
+            app:layout_constraintTop_toTopOf="@+id/guide_horizontal_33" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_vertical_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.20" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_vertical_80"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.80" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_horizontal_33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.50" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

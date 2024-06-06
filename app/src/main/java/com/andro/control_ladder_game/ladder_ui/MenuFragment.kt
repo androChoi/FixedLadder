@@ -1,16 +1,24 @@
 package com.andro.control_ladder_game.ladder_ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.andro.control_ladder_game.MainActivity
 import com.andro.control_ladder_game.R
 import com.andro.control_ladder_game.databinding.FragmentMenuBinding
+import com.andro.control_ladder_game.viewmodels.ShareViewModel
 
+private const val TAG = "MenuFragment"
 class MenuFragment : Fragment() {
-    lateinit var binding : FragmentMenuBinding
+    private lateinit var binding : FragmentMenuBinding
+    private val shareViewModel : ShareViewModel by  viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -20,8 +28,31 @@ class MenuFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(layoutInflater,R.layout.fragment_menu,container,false)
-        
+
+        initView()
 
         return binding.root
+    }
+
+    private fun initView(){
+        initMenuBoard()
+    }
+
+    private fun initMenuBoard(){
+        MenuBoardLayout(
+            layoutInflater,
+            binding.menuBoard.menuBoardList,
+            listOf(
+                MenuDataItem(getString(R.string.main_menu_start))
+                { findNavController().navigate(R.id.action_menuFragment_to_userFragment) },
+                MenuDataItem(getString(R.string.main_menu_setting))
+                {findNavController().navigate(R.id.action_menuFragment_to_probabilityFragment)},
+                MenuDataItem(getString(R.string.main_menu_record))
+                {},
+                MenuDataItem(getString(R.string.main_menu_info))
+                {},
+            ),
+            Pair(800, 400)
+        )
     }
 }

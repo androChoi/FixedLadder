@@ -26,43 +26,36 @@ class LadderMaster (private val ladderRepo : LadderRepository = LadderRepository
         ladderRepo.absoluteNumber
     )
 
-    private val ladderRouteNavigator = LadderRouteNavigator(ladderMaker.getLadderMap())
+    private val ladderHorseNavigator = LadderHorseNavigator(ladderMaker.getLadderMap())
 
+    fun getKing() = resultManager.getBoomerNumber()
+    fun getHorseRoute() = ladderHorseNavigator.getRouteList()
     /**
      * 사다리 형상을 반환합니다
      * 화면에 맞는 마진값을 포함하고 말이죠.*/
-    fun getLadderMap(w : Int, h : Int) : List<List<Int>>{
-        ladderMaker.getLadderMap()
+    fun getLadderMap(h : Int) : List<List<Int>>{
+        val arr = arrayListOf<ArrayList<Int>>()
+        val ratio = (h / ladderMaker.getTargetSize())
 
-        return ladderMaker.getLadderMap()
+        ladderMaker.getLadderMap().forEach { list ->
+            arr.add(arrayListOf())
+            list.forEach{
+                arr[arr.size-1].add(it * ratio)
+            }
+        }
+        return arr
     }
 
-    fun getLadderMap(w : Float, h : Float) : List<List<Int>>{
-        ladderMaker.getLadderMap()
+    fun getLadderMap(h : Float) : List<List<Int>>{
+        val arr = arrayListOf<ArrayList<Int>>()
+        val ratio = (h / ladderMaker.getTargetSize())
 
-        return ladderMaker.getLadderMap()
+        ladderMaker.getLadderMap().forEach { list ->
+            arr.add(arrayListOf())
+            list.forEach{
+                arr[arr.size-1].add((it * ratio).toInt())
+            }
+        }
+        return arr
     }
-
-    /**
-     * 재배치된 사다리 말을 반환합니다*/
-    fun getLadderHorseList() {
-        setRearrangeHorseList()
-    }
-
-
-    private fun setRearrangeHorseList(){
-
-    }
-
-    fun setHorseUserList(){
-
-    }
-    /**
-     * 1. resultManager에서 king을 뽑는다.
-     * 2. ladderRouteNavigator에서 루트 리스트를 받는다.
-     * 3. 루트 리스트에서 시작과 결과를 Pair로 만든다.
-     * 4. 그 시작을 랜덤으로 돌린다.
-     * 5. 마무리는 킹에 대한 정보, 킹이 당첨될 결과, 수정된 말들의 결과, 그 위치의 말들이 움직일 경로를 넘겨준다
-     * 6. 이거로 UI에서는 스킵도 가능하지, 
-     * */
 }
