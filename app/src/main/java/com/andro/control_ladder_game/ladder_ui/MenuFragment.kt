@@ -1,5 +1,7 @@
 package com.andro.control_ladder_game.ladder_ui
 
+import android.media.tv.TvContract
+import android.media.tv.TvContract.Programs
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,6 +16,8 @@ import com.andro.control_ladder_game.databinding.FragmentMenuBinding
 import com.andro.control_ladder_game.layouts.MenuBoardLayout
 import com.andro.control_ladder_game.layouts.MenuDataItem
 import com.andro.control_ladder_game.viewmodels.ShareViewModel
+import java.nio.charset.CoderResult
+import java.security.CodeSource
 
 private const val TAG = "MenuFragment"
 class MenuFragment : Fragment() {
@@ -31,6 +35,7 @@ class MenuFragment : Fragment() {
     ): View {
         binding = DataBindingUtil.inflate(layoutInflater,R.layout.fragment_menu,container,false)
 
+        andoChoi()
         initView()
 
         return binding.root
@@ -38,6 +43,13 @@ class MenuFragment : Fragment() {
 
     private fun initView(){
         initMenuBoard()
+    }
+
+    /**
+     * # Ando Choi!
+     */
+    public fun andoChoi() {
+
     }
 
     private fun initMenuBoard(){
