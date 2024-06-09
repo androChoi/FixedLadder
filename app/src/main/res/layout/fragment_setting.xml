@@ -10,6 +10,16 @@
         android:background="@color/design_default_color_primary_dark">
 
         <include
+            android:id="@+id/setting_top"
+            layout="@layout/layout_menu_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/guide_horizontal_33"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
             android:id="@+id/menu_board"
             layout="@layout/layout_menu_board"
             android:layout_width="0dp"

@@ -35,7 +35,6 @@ class MenuFragment : Fragment() {
     ): View {
         binding = DataBindingUtil.inflate(layoutInflater,R.layout.fragment_menu,container,false)
 
-        andoChoi()
         initView()
 
         return binding.root
@@ -45,12 +44,6 @@ class MenuFragment : Fragment() {
         initMenuBoard()
     }
 
-    /**
-     * # Ando Choi!
-     */
-    public fun andoChoi() {
-
-    }
 
     private fun initMenuBoard(){
         MenuBoardLayout(
@@ -63,6 +56,8 @@ class MenuFragment : Fragment() {
                 {},
                 MenuDataItem(getString(R.string.main_menu_setting))
                 {findNavController().navigate(R.id.action_menuFragment_to_settingFragment)},
+                MenuDataItem(getString(R.string.main_menu_exit))
+                {activity.finish()},
             ),
             Pair(800, 400)
         )

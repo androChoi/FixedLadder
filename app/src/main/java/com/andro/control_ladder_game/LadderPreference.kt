@@ -13,4 +13,9 @@ class LadderPreference(private val context: Context) {
     var cheatingResult: Int
         get() = prefs.getInt("cheatingMode", -1)
         set(value) = prefs.edit().putInt("cheatingMode", value).apply()
+
+
+    var boomerKing: Int
+        get() = prefs.getInt("boomerKing", -1)
+        set(value) = prefs.edit().putInt("boomerKing", value).apply()
 }
