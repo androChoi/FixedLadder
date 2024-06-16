@@ -2,7 +2,7 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ScrollView
+    <HorizontalScrollView
         android:id="@+id/scroll_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -10,11 +10,11 @@
         <LinearLayout
             android:id="@+id/menu_board_list"
             android:overScrollMode="never"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:gravity="center_horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </LinearLayout>
-    </ScrollView>
+    </HorizontalScrollView>
 
 </layout>

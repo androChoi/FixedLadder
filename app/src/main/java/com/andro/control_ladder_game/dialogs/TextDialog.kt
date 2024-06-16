@@ -1,5 +1,6 @@
 package com.andro.control_ladder_game.dialogs
 
+import android.content.Context
 import android.util.Log
 import android.view.View
 import com.andro.control_ladder_game.databinding.LayoutTextContentBinding
@@ -8,19 +9,16 @@ import java.lang.Exception
 
 private const val TAG = "TextDialog"
 class TextDialog(
+    context : Context,
     private val _title : String,
     private val _content : String,
     private val okClick : () ->Unit,
 
-) : DialogLayout(_title){
+) : DialogLayout(context, _title){
     override fun initContent() {
         binding.btnOk.setOnClickListener {
             okClick()
-            try {
-                dialog?.dismiss()
-            }catch (e : Exception){
-                Log.i(TAG, "Dialog null ... ??")
-            }
+            dialogDismiss()
         }
         binding.dialogContent.addView(makeContent())
     }

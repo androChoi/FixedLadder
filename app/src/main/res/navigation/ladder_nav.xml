@@ -11,9 +11,6 @@
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
-            android:id="@+id/action_menuFragment_to_probabilityFragment"
-            app:destination="@id/probabilityFragment" />
-        <action
             android:id="@+id/action_menuFragment_to_userFragment"
             app:destination="@id/userFragment" />
         <action
@@ -25,11 +22,17 @@
         android:name="com.andro.control_ladder_game.ladder_ui.GameFragment"
         android:label="fragment_game"
         tools:layout="@layout/fragment_game" />
+
     <fragment
         android:id="@+id/probabilityFragment"
         android:name="com.andro.control_ladder_game.ladder_ui.ProbabilityFragment"
         android:label="fragment_probability"
-        tools:layout="@layout/fragment_probability" />
+        tools:layout="@layout/fragment_probability">
+        <argument
+            android:name="mode"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
     <fragment
         android:id="@+id/userFragment"
         android:name="com.andro.control_ladder_game.ladder_ui.UserFragment"
@@ -42,5 +45,9 @@
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.andro.control_ladder_game.ladder_ui.SettingFragment"
-        android:label="SettingFragment" />
+        android:label="SettingFragment" >
+        <action
+            android:id="@+id/action_setting_to_probability"
+            app:destination="@id/probabilityFragment" />
+    </fragment>
 </navigation>

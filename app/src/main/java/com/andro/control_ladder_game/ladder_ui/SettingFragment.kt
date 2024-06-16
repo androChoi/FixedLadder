@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.andro.control_ladder_game.R
 import com.andro.control_ladder_game.databinding.FragmentSettingBinding
+import com.andro.control_ladder_game.dialogs.SetNumberDialog
 import com.andro.control_ladder_game.dialogs.TextDialog
 import com.andro.control_ladder_game.layouts.MenuBoardLayout
 import com.andro.control_ladder_game.layouts.MenuDataItem
@@ -36,14 +38,16 @@ class SettingFragment : BaseFragment() {
     }
 
     private fun initMenuBoard(){
+        binding.menuBoard.scrollList.isHorizontalScrollBarEnabled = true
+        SettingFragmentDirections.actionSettingToProbability(0)
         MenuBoardLayout(
             layoutInflater,
             binding.menuBoard.menuBoardList,
             listOf(
                 MenuDataItem(getString(R.string.setting_king))
-                { setKing() },
+                { findNavController().navigate(SettingFragmentDirections.actionSettingToProbability(0)) },
                 MenuDataItem(getString(R.string.setting_probability))
-                { setProbability() },
+                { findNavController().navigate(SettingFragmentDirections.actionSettingToProbability(1)) },
                 MenuDataItem(getString(R.string.setting_speed))
                 { setSpeed() },
                 MenuDataItem(getString(R.string.setting_reset))
@@ -53,23 +57,13 @@ class SettingFragment : BaseFragment() {
         )
     }
 
-
-    //preference에서만 진행하도록 합시당.
-    private fun setKing(){
-
-    }
-
-    private fun setProbability(){
-
-    }
-
     private fun setSpeed(){
 
     }
 
     private fun reset(){
-        TextDialog("Warning!","Do you want to reset?...") {
-            Log.i(TAG, "Dialog Ok Clicked!")
-        }.show(parentFragmentManager, "what is the tag?")
+        activity.showTextDialog("Warging!","Do you want to reset?..."){
+            Log.i(TAG,"text dialog okay!")
+        }
     }
 }

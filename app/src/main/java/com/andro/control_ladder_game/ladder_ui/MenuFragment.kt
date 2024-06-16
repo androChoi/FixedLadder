@@ -3,6 +3,7 @@ package com.andro.control_ladder_game.ladder_ui
 import android.media.tv.TvContract
 import android.media.tv.TvContract.Programs
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.andro.control_ladder_game.LadderApp
 import com.andro.control_ladder_game.MainActivity
 import com.andro.control_ladder_game.R
 import com.andro.control_ladder_game.databinding.FragmentMenuBinding
@@ -35,9 +37,15 @@ class MenuFragment : Fragment() {
     ): View {
         binding = DataBindingUtil.inflate(layoutInflater,R.layout.fragment_menu,container,false)
 
+        initApp()
         initView()
 
         return binding.root
+    }
+
+    private fun initApp(){
+        Log.i(TAG,"${LadderApp.instance.prefs.playCount++}")
+
     }
 
     private fun initView(){
