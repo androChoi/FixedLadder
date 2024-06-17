@@ -18,16 +18,16 @@ abstract class DialogLayout(context : Context, private val _title : String) : Di
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        initDialog()
 
         binding = DialogBaseLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initView()
+        initDialog()
     }
 
     private fun initDialog(){
         val displayMetrics = context.resources.displayMetrics
-        val dialogWidth = (300 * displayMetrics.density).toInt() // 300dp를 px로 변환
+        val dialogWidth = (350 * displayMetrics.density).toInt()
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         window?.setLayout(dialogWidth, ViewGroup.LayoutParams.WRAP_CONTENT)
         setCancelable(false)

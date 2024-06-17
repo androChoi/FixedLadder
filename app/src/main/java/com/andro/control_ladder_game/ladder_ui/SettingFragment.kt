@@ -58,11 +58,13 @@ class SettingFragment : BaseFragment() {
     }
 
     private fun setSpeed(){
-
+        activity.showSetNumberDialog("Set Game Speed!"){
+            Log.i(TAG, "set Number Show Dialog!")
+        }
     }
 
     private fun reset(){
-        activity.showTextDialog("Warging!","Do you want to reset?..."){
+        activity.showTextDialog("Warning!","Do you want to reset?..."){
             Log.i(TAG,"text dialog okay!")
         }
     }

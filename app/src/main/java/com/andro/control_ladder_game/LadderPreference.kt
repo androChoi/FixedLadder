@@ -15,6 +15,10 @@ class LadderPreference(private val context: Context) {
         get() = prefs.getInt("playCount", 0)
         set(value) = prefs.edit().putInt("playCount", value).apply()
 
+    var gameSpeed : Int
+        get() = prefs.getInt("gameSpeed", 1)
+        set(value) = prefs.edit().putInt("gameSpeed", value).apply()
+
     var cheatingResult: Int
         get() = prefs.getInt("cheatingMode", -1)
         set(value) = prefs.edit().putInt("cheatingMode", value).apply()

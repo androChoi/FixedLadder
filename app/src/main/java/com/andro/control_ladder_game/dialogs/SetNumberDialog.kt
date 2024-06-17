@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import com.andro.control_ladder_game.LadderApp
+import com.andro.control_ladder_game.databinding.LayoutSetButtonNumberBinding
 import com.andro.control_ladder_game.databinding.LayoutSetNumberContentBinding
 import com.andro.control_ladder_game.ladder_library.USER_MAX_LIMIT
 import com.andro.control_ladder_game.ladder_library.USER_MIN_LIMIT
@@ -18,12 +19,11 @@ class SetNumberDialog(
     private val _title : String,
     private val okClick : () ->Unit,
 ) : DialogLayout(context,_title){
-    private var number = 0
+    private var number = LadderApp.instance.prefs.gameSpeed
 
     override fun initContent() {
-
         binding.btnOk.setOnClickListener {
-            LadderApp.instance.prefs.boomerKing = number
+            LadderApp.instance.prefs.gameSpeed = number
             okClick()
             dialogDismiss()
 
@@ -32,16 +32,21 @@ class SetNumberDialog(
     }
 
     private fun makeContent() : View {
-        val setNumber = LayoutSetNumberContentBinding.inflate(layoutInflater)
+        val setNumber = LayoutSetButtonNumberBinding.inflate(layoutInflater)
 
         setNumber.apply {
-            UserNumberLayout(
-                layoutInflater,
-                userNumberLayout.menuBoardList,
-                makeMenuList(),
-                Pair(300,300),
-                LinearLayout.HORIZONTAL
-            )
+            content = number.toString()
+            minusBtn.setOnClickListener {
+                if(number > 1)
+                    number--
+
+                content = number.toString()
+            }
+            plusBtn.setOnClickListener {
+                if(number < 6)
+                    number ++
+                content = number.toString()
+            }
         }
 
         return setNumber.root

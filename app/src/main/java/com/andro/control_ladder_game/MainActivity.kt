@@ -44,10 +44,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showSetNumberDialog(title : String, okay : () -> Unit){
-        setNumberDialog = SetNumberDialog(
-            this,
-            title,
-        ){
+        setNumberDialog = SetNumberDialog(this, title){
             dialogValue = "949"
             okay()
         }

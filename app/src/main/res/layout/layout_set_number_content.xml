@@ -23,6 +23,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <include
+            layout="@layout/layout_set_button_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guide_vertical_30"
             android:layout_width="wrap_content"
@@ -35,52 +43,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.70"/>
-
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_dialog_border"
-            android:text="@={content}"
-            android:textAlignment="center"
-            android:textColor="@color/main_color"
-            android:textSize="60sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guide_vertical_70"
-            app:layout_constraintStart_toStartOf="@+id/guide_vertical_30"
-            app:layout_constraintTop_toBottomOf="@+id/user_number_layout"
-            tools:text="0" />
-
-        <TextView
-            android:id="@+id/minus_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:text="(−)"
-            android:textAlignment="center"
-            android:textColor="@color/sub_color"
-            android:textSize="40sp"
-            android:background="@drawable/bg_sub_box"
-            app:layout_constraintBottom_toBottomOf="@+id/textView3"
-            app:layout_constraintEnd_toStartOf="@+id/guide_vertical_30"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView3" />
-
-        <TextView
-            android:id="@+id/plus_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="(+)"
-            android:padding="5dp"
-            android:background="@drawable/bg_sub_box"
-            android:textAlignment="center"
-            android:textColor="@color/sub_color"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guide_vertical_70"
-            app:layout_constraintTop_toTopOf="@+id/textView3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
