@@ -2,7 +2,6 @@ package com.andro.control_ladder_game.ladder_ui
 
 import android.graphics.Rect
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,7 +39,7 @@ class ProbabilityFragment : BaseFragment() {
     }
 
     private fun initView(mode : Int){
-        initTopLayout(binding.probabilityTop, if(mode == 0) "확률 조정" else "당첨 확정 번호 선택")
+//        initTopLayout(binding.probabilityTop)
         initMidLayout(mode)
     }
 

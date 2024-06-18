@@ -24,7 +24,7 @@ open class DataChecker{
     protected fun checkNormalValue(value: Int) = value != -1
 }
 
-data class UserData(
+data class HorseData(
     var image : Int,
     var name : String,
 )

@@ -21,17 +21,8 @@ class SetNumberDialog(
 ) : DialogLayout(context,_title){
     private var number = LadderApp.instance.prefs.gameSpeed
 
-    override fun initContent() {
-        binding.btnOk.setOnClickListener {
-            LadderApp.instance.prefs.gameSpeed = number
-            okClick()
-            dialogDismiss()
 
-        }
-        binding.dialogContent.addView(makeContent())
-    }
-
-    private fun makeContent() : View {
+    override fun makeContent() : View {
         val setNumber = LayoutSetButtonNumberBinding.inflate(layoutInflater)
 
         setNumber.apply {
@@ -50,6 +41,12 @@ class SetNumberDialog(
         }
 
         return setNumber.root
+    }
+
+    override fun clickOk() {
+        LadderApp.instance.prefs.gameSpeed = number
+        okClick()
+        dialogDismiss()
     }
 
     private fun makeMenuList() : List<MenuDataItem>{

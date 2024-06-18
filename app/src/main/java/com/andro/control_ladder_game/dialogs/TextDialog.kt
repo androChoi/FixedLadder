@@ -15,19 +15,17 @@ class TextDialog(
     private val okClick : () ->Unit,
 
 ) : DialogLayout(context, _title){
-    override fun initContent() {
-        binding.btnOk.setOnClickListener {
-            okClick()
-            dialogDismiss()
-        }
-        binding.dialogContent.addView(makeContent())
-    }
 
-    private fun makeContent() : View {
+    override fun makeContent() : View {
         val text = LayoutTextContentBinding.inflate(layoutInflater)
 
         text.content = _content
 
         return text.root
+    }
+
+    override fun clickOk() {
+        okClick()
+        dialogDismiss()
     }
 }

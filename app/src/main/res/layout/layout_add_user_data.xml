@@ -29,14 +29,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <EditText
             android:id="@+id/textView7"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@={horseData.name}"
-            android:textColor="@color/main_color"
-            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:maxLines="2"
+            android:maxLength="20"
             android:layout_margin="10dp"
+            android:backgroundTint="@color/main_color"
+            android:focusableInTouchMode="true"
             tools:text="김똘만이."
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

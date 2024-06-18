@@ -13,11 +13,10 @@ import com.andro.control_ladder_game.MainActivity
 import com.andro.control_ladder_game.databinding.DialogBaseLayoutBinding
 
 abstract class DialogLayout(context : Context, private val _title : String) : Dialog(context) {
-    protected lateinit var binding: DialogBaseLayoutBinding
+    private lateinit var binding: DialogBaseLayoutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
         binding = DialogBaseLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -41,13 +40,17 @@ abstract class DialogLayout(context : Context, private val _title : String) : Di
                 dismiss()
             }
 
-            initContent()
+            btnOk.setOnClickListener {
+                clickOk()
+            }
+
+            dialogContent.addView(makeContent())
         }
     }
 
     protected fun dialogDismiss(){
         this.dismiss()
     }
-
-    abstract fun initContent()
+    abstract fun makeContent() : View
+    abstract fun clickOk()
 }

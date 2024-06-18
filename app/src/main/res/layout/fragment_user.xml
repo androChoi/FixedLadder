@@ -9,7 +9,7 @@
         android:layout_height="match_parent">
 
         <include
-            android:id="@+id/include"
+            android:id="@+id/title_bar"
             layout="@layout/layout_menu_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -18,14 +18,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/user_list"
+            android:id="@+id/user_list_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:padding="20dp"
             android:background="@drawable/bg_user_list_border"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/set_user_count"
-            app:layout_constraintTop_toBottomOf="@+id/include"
+            app:layout_constraintTop_toBottomOf="@+id/title_bar"
             app:layout_constraintVertical_bias="0.0"
             tools:layout_editor_absoluteX="49dp"
             tools:listitem="@layout/item_user_list_layout" />

@@ -9,8 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.andro.control_ladder_game.R
 import com.andro.control_ladder_game.databinding.FragmentSettingBinding
-import com.andro.control_ladder_game.dialogs.SetNumberDialog
-import com.andro.control_ladder_game.dialogs.TextDialog
 import com.andro.control_ladder_game.layouts.MenuBoardLayout
 import com.andro.control_ladder_game.layouts.MenuDataItem
 
@@ -33,7 +31,7 @@ class SettingFragment : BaseFragment() {
     }
 
     private fun initView(){
-        initTopLayout(binding.settingTop, getString(R.string.main_menu_setting))
+//        initTopLayout(binding.settingTop)
         initMenuBoard()
     }
 

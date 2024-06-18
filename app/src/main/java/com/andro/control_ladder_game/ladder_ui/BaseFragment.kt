@@ -1,7 +1,5 @@
 package com.andro.control_ladder_game.ladder_ui
 
-import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -21,7 +19,7 @@ open class BaseFragment : Fragment() {
 
 
 
-    protected fun initTopLayout(topLayout : LayoutMenuTopBinding, title : String){
+    protected fun initTopLayout(topLayout: LayoutMenuTopBinding, title: String){
         topLayout.backButton.setOnClickListener { findNavController().popBackStack() }
         topLayout.title = title
     }

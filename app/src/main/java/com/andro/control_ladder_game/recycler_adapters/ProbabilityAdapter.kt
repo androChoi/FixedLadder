@@ -13,7 +13,6 @@ class ProbabilityAdapter(private val dataSet : ArrayList<ProbabilityItem>) : Rec
         return ViewHolder(LayoutProbabilityItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(dataSet[position])
     }

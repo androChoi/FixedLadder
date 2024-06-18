@@ -23,7 +23,7 @@ object LadderRepository {
         return true
     }
 
-    fun getHorseDataList() = horseDataList.ifEmpty { listOf(HorseData()) }
+    fun getHorseDataList() = horseDataList.ifEmpty { listOf(HorseData(1,"")) }
 
     fun setProbabilityDataList(list : List<Int>) : Boolean{
         if(list.size < USER_MIN_LIMIT) return false
