@@ -4,5 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="main_color">#EE9494</color>
     <color name="sub_color">#87CFC5</color>
+    <color name="user_bg_color">#A5EDE5</color>
 
 </resources>

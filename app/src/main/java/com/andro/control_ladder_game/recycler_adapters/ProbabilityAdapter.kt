@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.andro.control_ladder_game.databinding.LayoutProbabilityItemBinding
 
 private const val TAG = "ProbabilityAdapter"
-class ProbabilityAdapter(private val dataSet : Array<ProbabilityItem>) : RecyclerView.Adapter<ProbabilityAdapter.ViewHolder>(){
+class ProbabilityAdapter(private val dataSet : ArrayList<ProbabilityItem>) : RecyclerView.Adapter<ProbabilityAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutProbabilityItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))

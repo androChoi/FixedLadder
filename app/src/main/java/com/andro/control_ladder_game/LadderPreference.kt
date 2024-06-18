@@ -3,6 +3,7 @@ package com.andro.control_ladder_game
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.andro.control_ladder_game.ladder_library.USER_MAX_LIMIT
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -35,7 +36,9 @@ class LadderPreference(private val context: Context) {
             return if (json != null) {
                 gson.fromJson(json,  object : TypeToken<List<Int>>() {}.type)
             } else {
-                emptyList()
+                List(USER_MAX_LIMIT + 1){_ ->
+                    -1
+                }
             }
         }
         set(value) {
@@ -43,17 +46,19 @@ class LadderPreference(private val context: Context) {
             prefs.edit().putString("boomerKingList", json).apply()
         }
 
-    var probabilityList: List<List<Int>>
-        get() {
-            val json = prefs.getString("probabilityList", null)
-            return if (json != null) {
-                gson.fromJson(json, object : TypeToken<List<List<Int>>>(){}.type)
-            } else {
-                emptyList()
-            }
+    var probabilityList: String
+        get() = prefs.getString("probabilityList", makeDefault())!!
+        set(value) = prefs.edit().putString("probabilityList", value).apply()
+
+    private fun makeDefault(): String{
+        var s = ""
+
+        repeat(100){
+            s += "-1,"
         }
-        set(value) {
-            val json = gson.toJson(value)
-            prefs.edit().putString("probabilityList", json).apply()
-        }
+
+        return s.substring(0 until s.length-1)
+    }
 }
+
+data class ProbabilityList(val idx : Int, val list : List<Int>)
