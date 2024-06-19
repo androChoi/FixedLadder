@@ -12,13 +12,15 @@ class SetUserDataDialog(
     private val okClick: (String) -> Unit,
 ) : DialogLayout(context,_title){
     private var userName = ""
+    private lateinit var addUserLayout : LayoutAddUserDataBinding
+
     override fun makeContent() : View {
-        val addUser = LayoutAddUserDataBinding.inflate(layoutInflater)
-        return addUser.root
+        addUserLayout = LayoutAddUserDataBinding.inflate(layoutInflater)
+        return addUserLayout.root
     }
 
     override fun clickOk() {
-        okClick(userName)
+        okClick(addUserLayout.textView7.text.toString())
         dialogDismiss()
     }
 }

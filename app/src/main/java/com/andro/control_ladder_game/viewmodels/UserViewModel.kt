@@ -20,6 +20,15 @@ class UserViewModel : ViewModel() {
             _userList.value.add(HorseData(0,(i+1).toString()))
         }
     }
+
+    fun updateTheWorldName(idx : Int, name : String){
+        if(_userList.value.size <= idx)
+            return
+        val currentList = _userList.value
+        currentList[idx].name = name
+        _userList.value = currentList
+    }
+
     fun createTheNewWorld(){
         if(userNumber >= USER_MAX_LIMIT)
             return

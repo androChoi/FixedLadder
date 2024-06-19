@@ -37,7 +37,8 @@ class UserFragment : BaseFragment() {
 
         val userListAdapter = UserListAdapter{idx ->
             activity.showInputTextDialog("이름을 변경하세용~",){
-                userViewModel.userList.value!![idx].name = it
+                userViewModel.updateTheWorldName(idx, it)
+
             }
         }
         binding.apply {
